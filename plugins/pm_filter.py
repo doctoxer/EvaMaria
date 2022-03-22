@@ -404,11 +404,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
         await query.answer()
     elif query.data == "start":
         buttons = [[
-            InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
-        ], [
-            InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
-        ], [
+            InlineKeyboardButton('🗣️ Group', url=f'http://t.me/MoviePalace_Chat'),
+            InlineKeyboardButton('🔍 Search Movies', switch_inline_query_current_chat='')
+            ],[
+            InlineKeyboardButton('New Release', url='https://t.me/MPG_NewRelease'),
+            InlineKeyboardButton('New Release 2.0', url='https://t.me/MPG_NewRelease2'),
+            InlineKeyboardButton('OnGoing Series', url='https://t.me/MPG_NewSeries')
+            ],[
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
         ]]
