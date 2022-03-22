@@ -1,6 +1,6 @@
 class script(object):
     START_TXT = """𝙷𝙴𝙻𝙾 Amal,
-𝙼𝚈 𝙽𝙰𝙼𝙴 𝙸𝚂 <a href=https://t.me/{}>{}</a>🤗,
+𝙼𝚈 𝙽𝙰𝙼𝙴 𝙸𝚂 {}🤗,
 
 ‣ ɪ'ᴍ ᴀ ʙᴏᴛ ᴛᴏ ᴍᴀɴᴀɢᴇ ᴍᴏᴠɪᴇ ɢʀᴏᴜᴘꜱ. 
 
