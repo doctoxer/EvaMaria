@@ -218,7 +218,7 @@ async def start(client, message):
             file = getattr(msg, filetype)
             title = file.file_name
             size=get_size(file.file_size)
-            f_caption = f"<code>{title}</code>"
+            f_caption = f"📁<code>{title}</code>"
             if CUSTOM_FILE_CAPTION:
                 try:
                     f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
@@ -240,7 +240,7 @@ async def start(client, message):
             logger.exception(e)
             f_caption=f_caption
     if f_caption is None:
-        f_caption = f"{files.file_name}"
+        f_caption = f"📁{files.file_name}"
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
