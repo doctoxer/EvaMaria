@@ -29,10 +29,10 @@ async def addfilter(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Make sure I'm present in your group!!", quote=True)
+                await message.reply_text("ഗ്രൂപ്പ് ആയിട്ട് എന്നെ connect ആക്ക് കുരുപ്പേ 🤦🏻‍♂️!!", quote=True)
                 return
         else:
-            await message.reply_text("I'm not connected to any groups!", quote=True)
+            await message.reply_text("എന്തോന്നാടാ എനിക്കൊരു ഗ്രൂപ്പും കാണുന്നില്ലാലോ 🤷🏻‍♂!", quote=True)
             return
 
     elif chat_type in ["group", "supergroup"]:
@@ -59,14 +59,14 @@ async def addfilter(client, message):
     text = extracted[0].lower()
 
     if not message.reply_to_message and len(extracted) < 2:
-        await message.reply_text("Add some content to save your filter!", quote=True)
+        await message.reply_text("I'm not a കണ്ടന്റ് കിങ്ങിണി😬.Add some content to save your filter!", quote=True)
         return
 
     if (len(extracted) >= 2) and not message.reply_to_message:
         reply_text, btn, alert = parser(extracted[1], text)
         fileid = None
         if not reply_text:
-            await message.reply_text("You cannot have buttons alone, give some text to go with it!", quote=True)
+            await message.reply_text("ഡേ തുണി താടാ buttons മാത്രം അല്ലാതെ 🤦🏻‍♂️. You cannot have buttons alone, give some text to go with it!", quote=True)
             return
 
     elif message.reply_to_message and message.reply_to_message.reply_markup:
@@ -132,10 +132,10 @@ async def get_all(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Make sure I'm present in your group!!", quote=True)
+                await message.reply_text("ഗ്രൂപ്പ് ആയിട്ട് എന്നെ connect ആക്ക് കുരുപ്പേ 🤦🏻‍♂️. Make sure I'm present in your group!!", quote=True)
                 return
         else:
-            await message.reply_text("I'm not connected to any groups!", quote=True)
+            await message.reply_text("എന്തോന്നാടാ എനിക്കൊരു ഗ്രൂപ്പും കാണുന്നില്ലാലോ 🤷🏻‍♂! I'm not connected to any groups!", quote=True)
             return
 
     elif chat_type in ["group", "supergroup"]:
@@ -184,7 +184,7 @@ async def get_all(client, message):
 async def deletefilter(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"ചവിട്ട് വേണ്ടെങ്കിൽ pm ഇൽ അയക്കേടാ /connect {message.chat.id} എന്ന്.")
     chat_type = message.chat.type
 
     if chat_type == "private":
@@ -195,10 +195,10 @@ async def deletefilter(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Make sure I'm present in your group!!", quote=True)
+                await message.reply_text("ഗ്രൂപ്പ് ആയിട്ട് എന്നെ connect ആക്ക് കുരുപ്പേ 🤦🏻‍♂️. Make sure I'm present in your group!!", quote=True)
                 return
         else:
-            await message.reply_text("I'm not connected to any groups!", quote=True)
+            await message.reply_text("എന്തോന്നാടാ എനിക്കൊരു ഗ്രൂപ്പും കാണുന്നില്ലാലോ 🤷🏻‍♂! I'm not connected to any groups!", quote=True)
 
     elif chat_type in ["group", "supergroup"]:
         grp_id = message.chat.id
@@ -235,7 +235,7 @@ async def deletefilter(client, message):
 async def delallconfirm(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"ചവിട്ട് വേണ്ടെങ്കിൽ pm ഇൽ അയക്കേടാ /connect {message.chat.id} എന്ന്.")
     chat_type = message.chat.type
 
     if chat_type == "private":
@@ -246,10 +246,10 @@ async def delallconfirm(client, message):
                 chat = await client.get_chat(grpid)
                 title = chat.title
             except:
-                await message.reply_text("Make sure I'm present in your group!!", quote=True)
+                await message.reply_text("ഗ്രൂപ്പ് ആയിട്ട് എന്നെ connect ആക്ക് കുരുപ്പേ 🤦🏻‍♂️. Make sure I'm present in your group!!", quote=True)
                 return
         else:
-            await message.reply_text("I'm not connected to any groups!", quote=True)
+            await message.reply_text("എന്തോന്നാടാ എനിക്കൊരു ഗ്രൂപ്പും കാണുന്നില്ലാലോ 🤷🏻‍♂! I'm not connected to any groups!", quote=True)
             return
 
     elif chat_type in ["group", "supergroup"]:
@@ -262,7 +262,7 @@ async def delallconfirm(client, message):
     st = await client.get_chat_member(grp_id, userid)
     if (st.status == "creator") or (str(userid) in ADMINS):
         await message.reply_text(
-            f"This will delete all filters from '{title}'.\nDo you want to continue??",
+            f"കളയട്ടെ? '{title}'.\nDo you want to continue??",
             reply_markup=InlineKeyboardMarkup([
                 [InlineKeyboardButton(text="YES",callback_data="delallconfirm")],
                 [InlineKeyboardButton(text="CANCEL",callback_data="delallcancel")]
