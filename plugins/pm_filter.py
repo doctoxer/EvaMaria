@@ -48,7 +48,7 @@ async def next_page(bot, query):
         offset = 0
     search = BUTTONS.get(key)
     if not search:
-        await query.answer("<b>ഇതിൽ പിശുക്ക് കാണിക്കാതെ ഒന്നൂടി അയക്കടോ....🤦🏻‍♂.</b>", show_alert=True)
+        await query.answer("ഇതിൽ പിശുക്ക് കാണിക്കാതെ ഒന്നൂടി അയക്കടോ....🤦🏻‍♂.", show_alert=True)
         return
 
     files, n_offset, total = await get_search_results(search, offset=offset, filter=True)
@@ -125,7 +125,7 @@ async def advantage_spoll_choker(bot, query):
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
     if not movies:
-        return await query.answer("<b> ഇതിൽ പിശുക്ക് കാണിക്കാതെ ഒന്നൂടി അയക്കടോ....🤦🏻‍♂.</b>.", show_alert=True)
+        return await query.answer(" ഇതിൽ പിശുക്ക് കാണിക്കാതെ ഒന്നൂടി അയക്കടോ....🤦🏻‍♂..", show_alert=True)
     movie = movies[(int(movie_))]
     await query.answer('<b> ഞാൻ ഒന്ന് ശെരിക്കും നോക്കട്ടെ...<b/>')
     k = await manual_filters(bot, query.message, text=movie)
@@ -135,7 +135,7 @@ async def advantage_spoll_choker(bot, query):
             k = (movie, files, offset, total_results)
             await auto_filter(bot, query, k)
         else:
-            k = await query.message.edit('<b>തള്ളേ.....! അങ്ങനൊരു സാധനം കാണുന്നില്ലല്ലോ</b>😢')
+            k = await query.message.edit('തള്ളേ.....! അങ്ങനൊരു സാധനം കാണുന്നില്ലല്ലോ😢')
             await asyncio.sleep(10)
             await k.delete()
 
@@ -364,16 +364,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
-                await query.answer('<b> Check PM, I have sent files in pm</b>', show_alert=True)
+                await query.answer(' Check PM, I have sent files in pm', show_alert=True)
         except UserIsBlocked:
-            await query.answer('<b> Unblock the bot mahn !🤷</b>', show_alert=True)
+            await query.answer(' Unblock the bot mahn !🤷', show_alert=True)
         except PeerIdInvalid:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
     elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
-            await query.answer("<b>I Like Your Smartness, But Don't Be Oversmart 😒</b>", show_alert=True)
+            await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒", show_alert=True)
             return
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
