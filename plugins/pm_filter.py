@@ -93,7 +93,10 @@ async def next_page(bot, query):
         btn.append(
             [InlineKeyboardButton("👈🏻 ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
              InlineKeyboardButton(f"🗒 ᴩᴀɢᴇꜱ {round(int(offset) / 10) + 1} / {round(total / 10)}",
-                                  callback_data="pages")]
+                                  callback_data="pages")
+             ],[
+             InlineKeyboardButton("✨️🇨 🇭 🇪 🇨 🇰  🇲 🇾  🇵 🇲 ✨️", (url=f"https://t.me/{temp.U_NAME}")
+             ]]
         )
     elif off_set is None:
         btn.append(
