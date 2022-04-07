@@ -94,10 +94,11 @@ async def answer(bot, query):
 
 
 def get_reply_markup(query):
+    url = 't.me/share/url?url=' + quote(SHARE_BUTTON_TEXT.format(username=username))
     buttons = [
         [
-            InlineKeyboardButton('🔍 Search Movies', f'http://t.me/MoviePalace_Chat')
-            InlineKeyboardButton('Share bot', url="t.me/share/url?url=http://t.me/FilmSearch_MPGBot"),
+            InlineKeyboardButton('🔍 Search Movies', f'https://t.me/MoviePalace_Chat')
+            InlineKeyboardButton('Share bot', url=url),
         ]
         ]
     return InlineKeyboardMarkup(buttons)
