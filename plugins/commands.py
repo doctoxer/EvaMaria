@@ -42,8 +42,8 @@ async def start(client, message):
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT_P.format(message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-            InlineKeyboardButton('🗣️ Group', url=f'http://t.me/MoviePalace_Chat'),
-            InlineKeyboardButton('🔍 Search Movies', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🗣️ Group', url=),
+            InlineKeyboardButton('🔍 Search Movies', f'http://t.me/MoviePalace_Chat')
             ],[
             InlineKeyboardButton('New Release', url='https://t.me/MPG_NewRelease'),
             InlineKeyboardButton('New Release 2.0', url='https://t.me/MPG_NewRelease2'),
@@ -88,7 +88,7 @@ async def start(client, message):
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
         buttons = [[
             InlineKeyboardButton('🗣️ Group', url=f'http://t.me/MoviePalace_Chat'),
-            InlineKeyboardButton('🔍 Search Movies', switch_inline_query_current_chat='')
+            InlineKeyboardButton('🔍 Search Movies', f'http://t.me/MoviePalace_Chat')
             ],[
             InlineKeyboardButton('New Release', url='https://t.me/MPG_NewRelease'),
             InlineKeyboardButton('New Release 2.0', url='https://t.me/MPG_NewRelease2'),
