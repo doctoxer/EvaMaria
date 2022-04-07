@@ -23,13 +23,6 @@ async def inline_users(query: InlineQuery):
 async def answer(bot, query):
     """What I Found For Your Request 🔰"""
     
-    if not await inline_users(query):
-        await query.answer(results=results,
-                           cache_time=cache_time
-                           switch_pm_text=switch_pm_text
-                           switch_pm_parameter="start")
-        return
-
     if AUTH_CHANNEL and not await is_subscribed(bot, query):
         await query.answer(results=[],
                            cache_time=0,
@@ -101,9 +94,11 @@ async def answer(bot, query):
 
 
 def get_reply_markup(query):
+    url = 't.me/share/url?url=http://t.me/FilmSearch_MPGBot')
     buttons = [
         [
             InlineKeyboardButton('🔍 Search Movies', f'http://t.me/MoviePalace_Chat')
+            InlineKeyboardButton('Share bot', url=url),
         ]
         ]
     return InlineKeyboardMarkup(buttons)
