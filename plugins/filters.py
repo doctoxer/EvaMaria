@@ -17,7 +17,7 @@ from info import ADMINS
 async def addfilter(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"ചവിട്ട് വേണ്ടെങ്കിൽ pm ഇൽ അയക്കേടാ /connect എന്ന്. You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"ചവിട്ട് വേണ്ടെങ്കിൽ PM ഇൽ അയക്കേടാ /connect എന്ന്. You are anonymous admin. Use /connect {message.chat.id} in PM")
     chat_type = message.chat.type
     args = message.text.html.split(None, 1)
 
@@ -66,7 +66,7 @@ async def addfilter(client, message):
         reply_text, btn, alert = parser(extracted[1], text)
         fileid = None
         if not reply_text:
-            await message.reply_text("ഡേ തുണി താടാ buttons മാത്രം അല്ലാതെ 🤦🏻‍♂️. You cannot have buttons alone, give some text to go with it!", quote=True)
+            await message.reply_text("ഡേ Text താടാ buttons മാത്രം അല്ലാതെ 🤦🏻‍♂️. You cannot have buttons alone, give some text to go with it!", quote=True)
             return
 
     elif message.reply_to_message and message.reply_to_message.reply_markup:
@@ -122,7 +122,7 @@ async def get_all(client, message):
     chat_type = message.chat.type
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"ചവിട്ട് വേണ്ടെങ്കിൽ pm ഇൽ അയക്കേടാ /connect എന്ന്. You are anonymous admin. Use /connect {message.chat.id} in PM")
+        return await message.reply(f"ചവിട്ട് വേണ്ടെങ്കിൽ PM ഇൽ അയക്കേടാ /connect എന്ന്. You are anonymous admin. Use /connect {message.chat.id} in PM")
     if chat_type == "private":
         userid = message.from_user.id
         grpid = await active_connection(str(userid))
@@ -184,7 +184,7 @@ async def get_all(client, message):
 async def deletefilter(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"ചവിട്ട് വേണ്ടെങ്കിൽ pm ഇൽ അയക്കേടാ /connect {message.chat.id} എന്ന്.")
+        return await message.reply(f"ചവിട്ട് വേണ്ടെങ്കിൽ PM ഇൽ അയക്കേടാ /connect {message.chat.id} എന്ന്.")
     chat_type = message.chat.type
 
     if chat_type == "private":
@@ -235,7 +235,7 @@ async def deletefilter(client, message):
 async def delallconfirm(client, message):
     userid = message.from_user.id if message.from_user else None
     if not userid:
-        return await message.reply(f"ചവിട്ട് വേണ്ടെങ്കിൽ pm ഇൽ അയക്കേടാ /connect {message.chat.id} എന്ന്.")
+        return await message.reply(f"ചവിട്ട് വേണ്ടെങ്കിൽ PM ഇൽ അയക്കേടാ /connect {message.chat.id} എന്ന്.")
     chat_type = message.chat.type
 
     if chat_type == "private":
