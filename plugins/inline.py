@@ -21,12 +21,12 @@ async def inline_users(query: InlineQuery):
 
 @Client.on_inline_query()
 async def answer(bot, query):
-    """Show search results for given inline query"""
+    """What I Found For Your Request 🔰"""
     
     if not await inline_users(query):
         await query.answer(results=[],
-                           cache_time=0,
-                           switch_pm_text='okDa',
+                           cache_time = TG_INLINE_SRCH_CACHE_TIME
+                           switch_pm_text = []
                            switch_pm_parameter="hehe")
         return
 
@@ -50,7 +50,7 @@ async def answer(bot, query):
     reply_markup = get_reply_markup(query=string)
     files, next_offset, total = await get_search_results(string,
                                                   file_type=file_type,
-                                                  max_results=10,
+                                                  max_results=100,
                                                   offset=offset)
 
     for file in files:
